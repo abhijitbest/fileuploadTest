@@ -1,0 +1,25 @@
+<div class="container">
+<div class="upload-btn-wrapper">
+        <button class="btn button" style="vertical-align:middle"><span>Upload a file </span></button>
+    <input type="file" appUploadFileDirective [url]="url" (filesData)="filesData($event)"
+        (previewHtml)="previewImg($event)" multiple>
+</div>
+<div class="row" [innerHTML]="previewImgs">
+
+</div><br><br><br>
+
+<table id="customers">
+    <thead>
+        <tr>
+            <td>Image Preview</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let file of files">
+            <td><img class="img-responsive" width="304" height="236" [src]="file.image"></td>
+            <td><button (click)="removeFile(file._id)">Remove</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>
